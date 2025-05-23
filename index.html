@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Permission Request</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        button { padding: 10px 20px; margin: 10px; background: #4285f4; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Permission Request Demo</h2>
+    <button onclick="requestCamera()">📷 Camera Access</button>
+    <button onclick="requestGallery()">🖼 Gallery Access</button>
+    <button onclick="requestLocation()">📍 My Location</button>
+
+    <script>
+        function requestCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(() => alert("Camera access granted!"))
+                .catch(err => alert("Error: " + err.message));
+        }
+
+        function requestGallery() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = (e) => alert(`Selected: ${e.target.files[0].name}`);
+            input.click();
+        }
+
+        function requestLocation() {
+            navigator.geolocation.getCurrentPosition(
+                pos => alert(`Your location:\nLat: ${pos.coords.latitude}\nLon: ${pos.coords.longitude}`),
+                err => alert("Error: " + err.message)
+            );
+        }
+    </script>
+</body>
+</html>
