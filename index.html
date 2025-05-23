@@ -35,5 +35,22 @@
             );
         }
     </script>
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+
+<script>
+  // Paste your firebaseConfig here (from Firebase Console)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "your-project.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-app.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abcdef123456"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
 </body>
 </html>
